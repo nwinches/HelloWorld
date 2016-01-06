@@ -110,7 +110,7 @@ header {
   text-shadow: 0px -1px 0px #df1806;
 }
 .container {
-  width: 500px;
+  width: 1000px;
   margin: 50px auto;
   overflow: hidden;
 }
@@ -120,6 +120,10 @@ header {
 }
 .main-content p {
   margin-bottom: 20px;
+}
+.map {
+  float: left;
+  width: 500px;
 }
 .sidebar {
   float: left;
@@ -162,4 +166,5 @@ footer {
   border-top: 1px dotted #ccc;
   padding-top: 5px;
   font-size: 13px;
+  align: center;
 }
