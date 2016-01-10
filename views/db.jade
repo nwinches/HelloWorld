@@ -4,8 +4,8 @@ block content
     | Countries!
   p
     ul
-      each results in results.length ? results : ['There are no countries']
-        li= result
+      each result in results.length ? results : ['There are no countries']
+        li= result.country_name + ', ' + result.iso_country_code_two_letter + ', ' + result.iso_country_code_three_letter
 block sidebar
   p
     | nothing to see here
