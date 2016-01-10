@@ -4,8 +4,8 @@ block content
     | Countries!
   p
     ul
-      each name, code2, code3 in results.length ? results : ['There are no countries']
-        li= name, code2, code3
+      each results in results.length ? results : ['There are no countries']
+        li= result
 block sidebar
   p
     | nothing to see here

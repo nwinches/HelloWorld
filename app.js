@@ -37,13 +37,15 @@ app.get('/', function (req, res) {
 })
 
 app.get('/db', function (request, response) {
-  pg.connect(process.env.DATABASE_URL, function(err, client, done) {
+  var dbUrl = process.env.DATABASE_URL;
+  console.error("connecting to: " + dbUrl);
+  pg.connect(dbUrl, function(err, client, done) {
     client.query('SELECT * FROM test_table', function(err, result) {
       done();
       if (err)
        { console.error(err); response.send("Error " + err); }
       else
-       { response.render('pages/db', {results: result.rows} ); }
+       { response.render('db', {results: result.rows} ); }
     });
   });
 })
