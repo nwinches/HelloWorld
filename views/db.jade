@@ -1,0 +1,12 @@
+extend layout
+block content
+  p
+    | Countries!
+  p
+    ul
+      each name, code2, code3 in results.length ? results : ['There are no countries']
+        li= name, code2, code3
+block sidebar
+  p
+    | nothing to see here
+

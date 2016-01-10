@@ -1,8 +1,9 @@
-
 // dependencies
-var express = require('express')
-  , stylus = require('stylus')
-  , nib = require('nib')
+var express = require('express');
+var stylus = require('stylus');
+var nib = require('nib');
+var pg = require('pg');
+
 
 var app = express()
 
@@ -26,11 +27,28 @@ app.use(stylus.middleware(
 ))
 app.use(express.static(__dirname + '/public'))
 
+
+
+// Routes
 app.get('/', function (req, res) {
   res.render('index',
     { title : 'Home' }
   )
 })
+
+app.get('/db', function (request, response) {
+  pg.connect(process.env.DATABASE_URL, function(err, client, done) {
+    client.query('SELECT * FROM test_table', function(err, result) {
+      done();
+      if (err)
+       { console.error(err); response.send("Error " + err); }
+      else
+       { response.render('pages/db', {results: result.rows} ); }
+    });
+  });
+})
+
+
 
 app.set('port', (process.env.PORT || 3000));
 app.listen(app.get('port'), function() {
