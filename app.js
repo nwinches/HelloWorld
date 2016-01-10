@@ -40,6 +40,10 @@ app.get('/db', function (request, response) {
   var dbUrl = process.env.DATABASE_URL;
   console.error("connecting to: " + dbUrl);
   pg.connect(dbUrl, function(err, client, done) {
+    if (err) {
+      console.error(err);
+      response.send("Error " + err);
+    }
     client.query('SELECT * FROM test_table', function(err, result) {
       done();
       if (err)
