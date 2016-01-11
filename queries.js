@@ -60,6 +60,8 @@ module.exports = {
       client.query(queryString, {destination_id}, function(err, results) {
         done();
 
+        console.log(JSON.stringify(results, null, 2));
+
         var table = new Array;
         var i;
         for (i = 0; i < results.rows.length; i++) {
