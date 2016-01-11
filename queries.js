@@ -14,7 +14,7 @@ module.exports = {
       client.query(queryString, function(err, results) {
         done();
         
-        var table = [];
+        var table = new Array;
         var i;
         for (i = 0; i < results.rows.length; i++) {
           var result = results.rows[i];
