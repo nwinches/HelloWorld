@@ -21,7 +21,7 @@ module.exports = {
           if (!table[result['destination_id']]) {
             table[result['destination_id']] = [];
           }
-          console.log(JSON.stringify(table, null, 2);
+          console.log(JSON.stringify(table, null, 2));
           console.log(result['destination_name']);
           table[result['destination_id']].destination_name = result['destination_name'];
           table[result['destination_id']].country_code = result['country_code'];
@@ -39,7 +39,7 @@ module.exports = {
             table[result['destination_id']].description[table[result['destination_id']].description.length] = result['description'];
           }
         }
-        console.log(JSON.stringify(table, null, 2);
+        console.log(JSON.stringify(table, null, 2));
 
         callback(err, table);
       });
