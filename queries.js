@@ -16,6 +16,9 @@ module.exports = {
         
         var table = [];
         for (result in results) {
+          if (!table[result.destination_id]) {
+            table[result.destination_id] = [];
+          }
           table[result.destination_id].destination_name = result.destination_name;
           table[result.destination_id].country_code = result.country_code;
           table[result.destination_id].min_days = result.min_days;
@@ -25,8 +28,12 @@ module.exports = {
             table[result.destination_id].activity_name = new Array;
             table[result.destination_id].description = new Array;
           }
-          table[result.destination_id].activity_name[table[result.destination_id].activity_name.length] = result.activity_name;
-          table[result.destination_id].description[table[result.destination_id].description.length] = result.description;
+          if (result.activity_name != '') {
+            table[result.destination_id].activity_name[table[result.destination_id].activity_name.length] = result.activity_name;
+          }
+          if (result.description != '') {
+            table[result.destination_id].description[table[result.destination_id].description.length] = result.description;
+          }
         }
 
         callback(err, table);
