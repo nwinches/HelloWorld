@@ -1,6 +1,6 @@
 extend layout
-.main-content
-  block content
+block content
+  .main-content
     p
       | Welcome!  Want to see a #[a(href="/db") list of places]? 
 block sidebar
@@ -12,5 +12,5 @@ block sidebar
     p
       | Vivamus hendrerit arcu sed erat molestie
       | vehicula.
-.map
-  iframe(src="https://www.google.com/maps/d/embed?mid=z6qrLvq-KKu0.koezeUCFlX_0", width="480", height="360")
+  .map
+    iframe(src="https://www.google.com/maps/d/embed?mid=z6qrLvq-KKu0.koezeUCFlX_0", width="480", height="360")
