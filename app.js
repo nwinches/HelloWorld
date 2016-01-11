@@ -2,7 +2,6 @@
 var express = require('express');
 var stylus = require('stylus');
 var nib = require('nib');
-var pg = require('pg');
 
 
 var app = express()
@@ -30,31 +29,7 @@ app.use(express.static(__dirname + '/public'))
 
 
 // Routes
-app.get('/', function (req, res) {
-  res.render('index',
-    { title : 'Home' }
-  )
-})
-
-app.get('/db', function (request, response) {
-  var dbUrl = process.env.DATABASE_URL;
-  console.error("connecting to: " + dbUrl);
-  pg.connect(dbUrl, function(err, client, done) {
-    if (err) {
-      console.error(err);
-      response.send("Error " + err);
-    }
-    client.query('SELECT * FROM test_table', function(err, result) {
-      done();
-      if (err)
-       { console.error(err); response.send("Error " + err); }
-      else
-       { response.render('db', {results: result.rows} ); }
-    });
-  });
-})
-
-
+var routes = require('./routes')(app);
 
 app.set('port', (process.env.PORT || 3000));
 app.listen(app.get('port'), function() {
