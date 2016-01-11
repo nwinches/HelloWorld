@@ -4,19 +4,22 @@ block content
     | Countries!
   table
     each result in results.length ? results : ['There are no countries']
-      tr
-        td= result.destination_name
-        td= result.country_code
-        td= result.min_days
-        td= result.max_days
-        td
-          //ul
-            //each activity in activity_name
-              //li= activity
-        td
-          //ul
-            //each desc in description
-              //li= desc
+      if result
+        tr
+          td= result.destination_name
+          td= result.country_code
+          td= result.min_days
+          td= result.max_days
+          td
+            ul
+              each activity in activity_name.length ? activity_name : [null]
+                if activity
+                  li= activity
+          td
+            ul
+              each desc in description.length ? description : [null]
+                if desc
+                  li= desc
 block sidebar
   .widget
     p
