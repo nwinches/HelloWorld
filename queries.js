@@ -17,7 +17,7 @@ module.exports = {
         var table = [];
         console.log(JSON.stringify(results, null, 4));
         for (result in results.rows) {
-          console.log('returned: ' + result.destination_name);
+          console.log('returned: ' + JSON.stringify(result, null, 4));
           if (!table[result.destination_id]) {
             table[result.destination_id] = [];
           }
