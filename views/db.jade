@@ -4,9 +4,9 @@ block content
     | Countries!
   table
     - console.log(JSON.stringify(results, null, 2));
-    each result in results.length ? results : ['There are no countries']
+    each result, index in results.length ? results : ['There are no countries']
       - console.log(JSON.stringify(result, null, 2));
-      if result
+      if index > 0
         tr
           td= result.destination_name
           td= result.country_code
