@@ -5,7 +5,7 @@ module.exports = function(app){
     response.render('index',
       { title : 'Home' }
     )
-  })
+  });
 
   app.get('/destinations', function (request, response) {
     queries.getDestinations(function(err, table) {
