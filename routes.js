@@ -14,6 +14,7 @@ module.exports = function(app){
         response.send("Error " + err);
       } else {
         response.render('destinations', {
+          title: 'Destinations',
           results: table
         });
       }
@@ -27,6 +28,7 @@ module.exports = function(app){
         response.send("Error " + err);
       } else {
         response.render('destination', {
+          title: destination[0].destination_name,
           destination: destination
         });
       }

@@ -1,9 +1,10 @@
 extend layout
 
 - var results = destination;
+- console.log('in view, destination: ' + JSON.stringify(results, null, 2));
+
 block content
-  p
-    | Destinations!
+  h1 destination[0].destination_name
   table.sortable
     thead
       th Name
