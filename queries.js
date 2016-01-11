@@ -57,10 +57,10 @@ module.exports = {
                         where destinations.destination_id = $1 ';
 
     pg.connect(dbUrl, function(err, client, done) {
-      client.query(queryString, {destination_id}, function(err, results) {
+      client.query({text: queryString, values: [destination_id]}, function(err, results) {
         done();
 
-        console.log(JSON.stringify(results, null, 2));
+        console.log('destination' + JSON.stringify(results, null, 2));
 
         var table = new Array;
         var i;
