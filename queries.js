@@ -23,7 +23,7 @@ module.exports = {
           }
           console.log(JSON.stringify(table, null, 2));
           console.log(result['destination_name']);
-          table[result['destination_id']].destination_name = result['destination_name'];
+          table[result['destination_id']]['destination_name'] = result['destination_name'];
           table[result['destination_id']].country_code = result['country_code'];
           table[result['destination_id']].min_days = result['min_days'];
           table[result['destination_id']].max_days = result['max_days'];
