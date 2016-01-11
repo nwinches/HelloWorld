@@ -21,6 +21,7 @@ console.log(JSON.stringify(results.rows, null, 4));
         for (i = 0; i < results.rows.length; i++) {
           var result = results.rows[i];
           console.log(JSON.stringify(result, null, 4));
+          console.log('dot: ' + result.destination_id + ' associative: ' + result['destination_id']);
           if (!table[result['destination_id']]) {
             table[result['destination_id']] = [];
           }
