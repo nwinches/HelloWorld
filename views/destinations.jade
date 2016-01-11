@@ -13,7 +13,7 @@ block content
       - console.log('starting: ' + JSON.stringify(result, null, 2));
       if index > 0
         tr
-          td= #[a(href="/destinations/"+result.destination_id) result.destination_name]
+          td= #[a(href='/destinations/'+result.destination_id) result.destination_name]
           td= result.country_name
           td= result.min_days + '-' + result.max_days
           td
