@@ -1,4 +1,6 @@
 extend layout
+
+- var results = destination;
 block content
   p
     | Destinations!
@@ -9,7 +11,7 @@ block content
       th Days
       th Activites
       th Description
-    each result, index in results.length ? results : ['There are no countries']
+    each result, index in destination.length ? results : ['There are no countries']
       - console.log('starting: ' + JSON.stringify(result, null, 2));
       if index > 0
         tr

@@ -21,7 +21,7 @@ module.exports = function(app){
   });
 
   app.get('/destinations/:destination_id', function (request, response) {
-    queries.getDestination(request.params.destination_id, function(err, table) {
+    queries.getDestination(request.params.destination_id, function(err, destination) {
       if (err) {
         console.error(err);
         response.send("Error " + err);
