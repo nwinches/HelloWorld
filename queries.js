@@ -24,6 +24,7 @@ module.exports = {
             entry = table[result['destination_id']];
           } else {
             table[result['destination_id']] = entry;
+            entry.destination_id = result['destination_id'];
             entry.destination_name = result['destination_name'];
             entry.country_name = result['country_name'];
             entry.min_days = result['min_days'];
@@ -69,6 +70,7 @@ module.exports = {
             entry = table[result['destination_id']];
           } else {
             table[result['destination_id']] = entry;
+            entry.destination_id = result['destination_id'];
             entry.destination_name = result['destination_name'];
             entry.country_name = result['country_name'];
             entry.min_days = result['min_days'];
