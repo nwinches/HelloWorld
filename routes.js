@@ -10,12 +10,14 @@ module.exports = function(app){
     var queries = require('./queries');
 
     queries.getDestinations(function(err, result) {
+      console.log('got results: ' + result);
+
       if (err) { 
         console.error(err);
         response.send("Error " + err);
       } else {
         response.render('db', {
-          results: result.rows
+          results: result
         });
       }
     });

@@ -16,6 +16,7 @@ module.exports = {
         
         var table = [];
         for (result in results) {
+          console.log('returned: ' + result.destination_name);
           if (!table[result.destination_id]) {
             table[result.destination_id] = [];
           }
