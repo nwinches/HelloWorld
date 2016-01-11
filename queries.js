@@ -42,7 +42,7 @@ module.exports = {
         callback(err, table);
       });
     });
-  }
+  },
 
   getDestination: function(destination_id, callback) {
     var pg = require('pg');
