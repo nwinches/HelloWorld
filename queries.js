@@ -18,25 +18,24 @@ module.exports = {
         var i;
         for (i = 0; i < results.rows.length; i++) {
           var result = results.rows[i];
-          if (!table[result['destination_id']]) {
-            table[result['destination_id']] = [];
-          }
-          console.log(JSON.stringify(table, null, 2));
-          console.log(result['destination_name']);
-          table[result['destination_id']]['destination_name'] = result['destination_name'];
-          table[result['destination_id']].country_code = result['country_code'];
-          table[result['destination_id']].min_days = result['min_days'];
-          table[result['destination_id']].max_days = result['max_days'];
-          
-          if (!table[result['destination_id']].activity_name) {
-            table[result['destination_id']].activity_name = new Array;
-            table[result['destination_id']].description = new Array;
+          var entry = new Object();
+
+          if (table[result['destination_id']]) {
+            entry = table[result['destination_id']];
+          } else {
+            table[result['destination_id']] = entry;
+            entry.destination_name = result['destination_name'];
+            entry.country_code = result['country_code'];
+            entry.min_days = result['min_days'];
+            entry.max_days = result['max_days'];
+            entry.activity_name = new Array;
+            entry.description = new Array;
           }
           if (result['activity_name'] != '') {
-            table[result['destination_id']].activity_name[table[result['destination_id']].activity_name.length] = result['activity_name'];
+            entry.activity_name[entry.activity_name.length] = result['activity_name'];
           }
           if (result['description'] != '') {
-            table[result['destination_id']].description[table[result['destination_id']].description.length] = result['description'];
+            entry.description[entry.description.length] = result['description'];
           }
         }
         console.log(JSON.stringify(table, null, 2));
