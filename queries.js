@@ -16,15 +16,13 @@ module.exports = {
         
         var table = [];
         var i;
-console.log(JSON.stringify(results, null, 4));
-console.log(JSON.stringify(results.rows, null, 4));
         for (i = 0; i < results.rows.length; i++) {
           var result = results.rows[i];
-          console.log(JSON.stringify(result, null, 4));
-          console.log('dot: ' + result.destination_id + ' associative: ' + result['destination_id']);
           if (!table[result['destination_id']]) {
             table[result['destination_id']] = [];
           }
+          console.log(JSON.stringify(table, null, 2);
+          console.log(result['destination_name']);
           table[result['destination_id']].destination_name = result['destination_name'];
           table[result['destination_id']].country_code = result['country_code'];
           table[result['destination_id']].min_days = result['min_days'];
@@ -41,6 +39,7 @@ console.log(JSON.stringify(results.rows, null, 4));
             table[result['destination_id']].description[table[result['destination_id']].description.length] = result['description'];
           }
         }
+        console.log(JSON.stringify(table, null, 2);
 
         callback(err, table);
       });
