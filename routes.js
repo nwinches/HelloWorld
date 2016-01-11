@@ -10,8 +10,6 @@ module.exports = function(app){
     var queries = require('./queries');
 
     queries.getDestinations(function(err, table) {
-      console.log('got results: ' + JSON.stringify(table, null, 4));
-
       if (err) { 
         console.error(err);
         response.send("Error " + err);

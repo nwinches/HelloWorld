@@ -3,7 +3,6 @@ module.exports = {
   getDestinations: function(callback) {  
     var pg = require('pg');
     var dbUrl = process.env.DATABASE_URL;
-    console.error("connecting to: " + dbUrl);
 
     var queryString = 'select destination_id, destination_name, country_code, min_days, max_days, activity_name, description \
                          from destinations \
@@ -38,7 +37,6 @@ module.exports = {
             entry.description[entry.description.length] = result['description'];
           }
         }
-        console.log(JSON.stringify(table, null, 2));
 
         callback(err, table);
       });

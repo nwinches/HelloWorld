@@ -3,9 +3,8 @@ block content
   p
     | Countries!
   table
-    - console.log(JSON.stringify(results, null, 2));
     each result, index in results.length ? results : ['There are no countries']
-      - console.log(JSON.stringify(result, null, 2));
+      - console.log('starting: ' + JSON.stringify(result, null, 2));
       if index > 0
         tr
           td= result.destination_name
@@ -14,12 +13,12 @@ block content
           td= result.max_days
           td
             ul
-              each activity in activity_name.length ? activity_name : [null]
+              each activity in result.activity_name.length ? result.activity_name : [null]
                 if activity
                   li= activity
           td
             ul
-              each desc in description.length ? description : [null]
+              each desc in result.description.length ? result.description : [null]
                 if desc
                   li= desc
 block sidebar
