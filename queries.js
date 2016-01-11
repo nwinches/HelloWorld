@@ -18,7 +18,7 @@ module.exports = {
         var i;
 console.log(JSON.stringify(results, null, 4));
 console.log(JSON.stringify(results.rows, null, 4));
-        for (int i = 0; i < results.rows.length; i++) {
+        for (i = 0; i < results.rows.length; i++) {
           var result = results.rows[i];
           console.log(JSON.stringify(result, null, 4));
           if (!table[result.destination_id]) {
