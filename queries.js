@@ -6,6 +6,7 @@ module.exports = {
 
     var queryString = 'select destination_id, destination_name, country_code, min_days, max_days, activity_name, description \
                          from destinations \
+                              inner join test_table on (destinations.country_code = test_table.iso_country_code_two_letter)
                               left outer join destination_activity using (destination_id) \
                               left outer join activities using (activity_id)';
 
