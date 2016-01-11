@@ -25,7 +25,7 @@ module.exports = {
           } else {
             table[result['destination_id']] = entry;
             entry.destination_name = result['destination_name'];
-            entry.country_code = result['country_code'];
+            entry.country_name = result['country_name'];
             entry.min_days = result['min_days'];
             entry.max_days = result['max_days'];
             entry.activity_name = new Array;
