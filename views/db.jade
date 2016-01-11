@@ -3,7 +3,9 @@ block content
   p
     | Countries!
   table
+    - console.log(JSON.stringify(results, null, 2));
     each result in results.length ? results : ['There are no countries']
+      - console.log(JSON.stringify(result, null, 2));
       if result
         tr
           td= result.destination_name
