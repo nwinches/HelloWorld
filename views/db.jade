@@ -2,15 +2,20 @@ extend layout
 block content
   p
     | Destinations!
-  table
+  table.sortable
+    thead
+      th Name
+      th Country
+      th Days
+      th Activites
+      th Description
     each result, index in results.length ? results : ['There are no countries']
       - console.log('starting: ' + JSON.stringify(result, null, 2));
       if index > 0
         tr
           td= result.destination_name
           td= result.country_code
-          td= result.min_days
-          td= result.max_days
+          td= result.min_days + '-' + result.max_days
           td
             ul
               each activity in result.activity_name.length ? result.activity_name : [null]
