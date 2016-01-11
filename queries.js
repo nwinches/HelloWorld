@@ -76,7 +76,7 @@ module.exports = {
           entry.country_name = result['country_name'];
           entry.min_days = result['min_days'];
           entry.max_days = result['max_days'];
-          }
+          
           if (result['activity_name'] != '') {
             entry.activity_name[entry.activity_name.length] = result['activity_name'];
           }
