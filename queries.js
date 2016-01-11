@@ -21,23 +21,23 @@ console.log(JSON.stringify(results.rows, null, 4));
         for (i = 0; i < results.rows.length; i++) {
           var result = results.rows[i];
           console.log(JSON.stringify(result, null, 4));
-          if (!table[result.destination_id]) {
-            table[result.destination_id] = [];
+          if (!table[result['destination_id']]) {
+            table[result['destination_id']] = [];
           }
-          table[result.destination_id].destination_name = result.destination_name;
-          table[result.destination_id].country_code = result.country_code;
-          table[result.destination_id].min_days = result.min_days;
-          table[result.destination_id].max_days = result.max_days;
+          table[result['destination_id']].destination_name = result['destination_name'];
+          table[result['destination_id']].country_code = result['country_code'];
+          table[result['destination_id']].min_days = result['min_days'];
+          table[result['destination_id']].max_days = result['max_days'];
           
-          if (!table[result.destination_id].activity_name) {
-            table[result.destination_id].activity_name = new Array;
-            table[result.destination_id].description = new Array;
+          if (!table[result['destination_id']].activity_name) {
+            table[result['destination_id']].activity_name = new Array;
+            table[result['destination_id']].description = new Array;
           }
-          if (result.activity_name != '') {
-            table[result.destination_id].activity_name[table[result.destination_id].activity_name.length] = result.activity_name;
+          if (result['activity_name'] != '') {
+            table[result['destination_id']].activity_name[table[result['destination_id']].activity_name.length] = result['activity_name'];
           }
-          if (result.description != '') {
-            table[result.destination_id].description[table[result.destination_id].description.length] = result.description;
+          if (result['description'] != '') {
+            table[result['destination_id']].description[table[result['destination_id']].description.length] = result['description'];
           }
         }
 
