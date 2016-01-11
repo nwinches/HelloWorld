@@ -14,7 +14,7 @@ module.exports = {
       client.query(queryString, function(err, results) {
         done();
         
-        var table;
+        var table = [];
         for (result in results) {
           table[result.destination_id].destination_name = result.destination_name;
           table[result.destination_id].country_code = result.country_code;
