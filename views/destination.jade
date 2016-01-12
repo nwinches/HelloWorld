@@ -2,15 +2,15 @@ extend layout
 
 block content
   - var result = destination;
-  h1 #{destination.destination_name}
+  h2 #{destination.destination_name}
   p
     | #{destination.destination_name} is in #{destination.country_name} and likely offers #{result.min_days}-#{result.max_days} of activities.
-  h2 Activities
+  h3 Activities
   ul
     each activity in result.activity_name.length ? result.activity_name : [null]
       if activity
         li= activity
-  h2 Description
+  h3 Description
   ul
     each desc in result.description.length ? result.description : [null]
       if desc
