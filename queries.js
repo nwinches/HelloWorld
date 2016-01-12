@@ -15,29 +15,29 @@ module.exports = {
       client.query(queryString, function(err, results) {
         done();
         
-        var table = new Array;
+        var table = [];
         var i;
         for (i = 0; i < results.rows.length; i++) {
           var result = results.rows[i];
-          var entry = new Object();
+          var entry = {};
 
-          if (table[result['destination_id']]) {
-            entry = table[result['destination_id']];
+          if (table[result.destination_id]) {
+            entry = table[result.destination_id];
           } else {
-            table[result['destination_id']] = entry;
-            entry.destination_id = result['destination_id'];
-            entry.destination_name = result['destination_name'];
-            entry.country_name = result['country_name'];
-            entry.min_days = result['min_days'];
-            entry.max_days = result['max_days'];
-            entry.activity_name = new Array;
-            entry.description = new Array;
+            table[result.destination_id] = entry;
+            entry.destination_id = result.destination_id;
+            entry.destination_name = result.destination_name;
+            entry.country_name = result.country_name;
+            entry.min_days = result.min_days;
+            entry.max_days = result.max_days;
+            entry.activity_name = [];
+            entry.description = [];
           }
-          if (result['activity_name'] != '') {
-            entry.activity_name[entry.activity_name.length] = result['activity_name'];
+          if (result.activity_name !== '') {
+            entry.activity_name[entry.activity_name.length] = result.activity_name;
           }
-          if (result['description'] != '') {
-            entry.description[entry.description.length] = result['description'];
+          if (result.description !== '') {
+            entry.description[entry.description.length] = result.description;
           }
         }
 
@@ -62,24 +62,24 @@ module.exports = {
         done();
 
         var i;
-        var entry = new Object();
-        entry.activity_name = new Array;
-        entry.description = new Array;
+        var entry = {};
+        entry.activity_name = [];
+        entry.description = [];
 
         for (i = 0; i < results.rows.length; i++) {
           var result = results.rows[i];
 
-          entry.destination_id = result['destination_id'];
-          entry.destination_name = result['destination_name'];
-          entry.country_name = result['country_name'];
-          entry.min_days = result['min_days'];
-          entry.max_days = result['max_days'];
+          entry.destination_id = result.destination_id;
+          entry.destination_name = result.destination_name;
+          entry.country_name = result.country_name;
+          entry.min_days = result.min_days;
+          entry.max_days = result.max_days;
           
-          if (result['activity_name'] != '') {
-            entry.activity_name[entry.activity_name.length] = result['activity_name'];
+          if (result.activity_name !== '') {
+            entry.activity_name[entry.activity_name.length] = result.activity_name;
           }
-          if (result['description'] != '') {
-            entry.description[entry.description.length] = result['description'];
+          if (result.description !== '') {
+            entry.description[entry.description.length] = result.description;
           }
         }
 
@@ -105,33 +105,33 @@ module.exports = {
       client.query(queryString, function(err, results) {
         done();
         
-        var table = new Array;
+        var table = {};
         var i;
         for (i = 0; i < results.rows.length; i++) {
           var result = results.rows[i];
-          var entry = new Object();
+          var entry = {};
 
-          if (table[result['country_code']]) {
-            entry = table[result['country_code']];
+          if (table[result.country_code]) {
+            entry = table[result.country_code];
           } else {
-            table[result['country_code']] = entry;
-            entry.country_code = result['country_code'];
-            entry.country_name = result['country_name'];
-            entry.iso_country_code_three_letter = result['iso_country_code_three_letter'];
-            entry.capital = result['capital'];
-            entry.currency_code = result['currency_code'];
-            entry.min_days = result['sum_min_days'];
-            entry.max_days = result['sum_max_days'];
+            table[result.country_code] = entry;
+            entry.country_code = result.country_code;
+            entry.country_name = result.country_name;
+            entry.iso_country_code_three_letter = result.iso_country_code_three_letter;
+            entry.capital = result.capital;
+            entry.currency_code = result.currency_code;
+            entry.min_days = result.sum_min_days;
+            entry.max_days = result.sum_max_days;
             
-            entry.destinations = new Array;
+            entry.destinations = [];
           }
-          if (result['destination_id'] != '') {
-            destination = new Object();
+          if (result.destination_id !== '') {
+            var destination = {};
             entry.destinations[entry.destinations.length] = destination;
-            destination.destination_id = result['destination_id'];
-            destination.destination_name = result['destination_name'];
-            destination.min_days = result['min_days'];
-            destination.max_days = result['max_days'];
+            destination.destination_id = result.destination_id;
+            destination.destination_name = result.destination_name;
+            destination.min_days = result.min_days;
+            destination.max_days = result.max_days;
           }
         }
 
@@ -157,31 +157,31 @@ module.exports = {
       client.query({text: queryString, values: [country_code]}, function(err, results) {
         done();
 
-        var table = new Array;
+        var table = [];
         var i;
-        var entry = new Object();
-        entry.destinations = new Array;
+        var entry = {};
+        entry.destinations = [];
         
         console.log(JSON.stringify(results, null, 2));
 
         for (i = 0; i < results.rows.length; i++) {
           var result = results.rows[i];
 
-          entry.country_code = result['country_code'];
-          entry.country_name = result['country_name'];
-          entry.iso_country_code_three_letter = result['iso_country_code_three_letter'];
-          entry.capital = result['capital'];
-          entry.currency_code = result['currency_code'];
-          entry.min_days = result['sum_min_days'];
-          entry.max_days = result['sum_max_days'];
+          entry.country_code = result.country_code;
+          entry.country_name = result.country_name;
+          entry.iso_country_code_three_letter = result.iso_country_code_three_letter;
+          entry.capital = result.capital;
+          entry.currency_code = result.currency_code;
+          entry.min_days = result.sum_min_days;
+          entry.max_days = result.sum_max_days;
           
           if (result.destination_id !== '') {
-            destination = new Object();
+            var destination = {};
             entry.destinations[entry.destinations.length] = destination;
-            destination.destination_id = result['destination_id'];
-            destination.destination_name = result['destination_name'];
-            destination.min_days = result['min_days'];
-            destination.max_days = result['max_days'];
+            destination.destination_id = result.destination_id;
+            destination.destination_name = result.destination_name;
+            destination.min_days = result.min_days;
+            destination.max_days = result.max_days;
           }
         }
 
@@ -190,4 +190,4 @@ module.exports = {
     });
   }
 
-}
+};
