@@ -107,10 +107,13 @@ module.exports = {
         
         var table = {};
         var i;
+        console.log(JSON.stringify(results, null, 2));
+        
         for (i = 0; i < results.rows.length; i++) {
           var result = results.rows[i];
           var entry = {};
 
+          console.log(table[result.country_code]);
           if (table[result.country_code]) {
             entry = table[result.country_code];
           } else {
