@@ -153,7 +153,7 @@ module.exports = {
 
 
     pg.connect(dbUrl, function(err, client, done) {
-      client.query({text: queryString, values: [destination_id]}, function(err, results) {
+      client.query({text: queryString, values: [country_code]}, function(err, results) {
         done();
 
         var table = new Array;
