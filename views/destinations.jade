@@ -14,7 +14,7 @@ block content
       if index > 0
         tr
           td #[a(href='/destinations/'+result.destination_id) #{result.destination_name}]
-          td #[a(href='/countries/'+result.country_code) #{result.country_name}] result.country_name
+          td #[a(href='/countries/'+result.country_code) #{result.country_name}]
           td= result.min_days + '-' + result.max_days
           td
             ul

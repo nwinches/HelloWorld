@@ -116,8 +116,8 @@ module.exports = {
           var result = results.rows[i];
           var entry = {};
 
-          console.log('inside loop' + table[result.country_code]);
-          if (table[j-1] && table[j-1].country_code === result.country_code) {
+          console.log('inside loop ' + j + ' ' + table[result.country_code]);
+          if (j>0 && table[j-1] && table[j-1].country_code === result.country_code) {
             entry = table[j];
           } else {
             table[j++] = entry;
