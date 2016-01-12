@@ -5,7 +5,7 @@ module.exports = {
     var pg = require('pg');
     var dbUrl = process.env.DATABASE_URL;
 
-    var queryString = 'select destination_id, destination_name, country_name, min_days, max_days, activity_name, description \
+    var queryString = 'select destination_id, destination_name, country_name, country_code, min_days, max_days, activity_name, description \
                          from destinations \
                               inner join test_table on (destinations.country_code = test_table.iso_country_code_two_letter) \
                               left outer join destination_activity using (destination_id) \
@@ -28,6 +28,7 @@ module.exports = {
             entry.destination_id = result.destination_id;
             entry.destination_name = result.destination_name;
             entry.country_name = result.country_name;
+            entry.country_code = result.country_code;
             entry.min_days = result.min_days;
             entry.max_days = result.max_days;
             entry.activity_name = [];
@@ -50,7 +51,7 @@ module.exports = {
     var pg = require('pg');
     var dbUrl = process.env.DATABASE_URL;
 
-    var queryString = 'select destination_id, destination_name, country_name, min_days, max_days, activity_name, description \
+    var queryString = 'select destination_id, destination_name, country_name, country_code, min_days, max_days, activity_name, description \
                          from destinations \
                               inner join test_table on (destinations.country_code = test_table.iso_country_code_two_letter) \
                               left outer join destination_activity using (destination_id) \
@@ -72,6 +73,7 @@ module.exports = {
           entry.destination_id = result.destination_id;
           entry.destination_name = result.destination_name;
           entry.country_name = result.country_name;
+          entry.country_code = result.country_code;
           entry.min_days = result.min_days;
           entry.max_days = result.max_days;
           
@@ -115,7 +117,7 @@ module.exports = {
           var entry = {};
 
           console.log('inside loop' + table[result.country_code]);
-          if (table[j] && table[j].country_code == result.country_code) {
+          if (table[j-1] && table[j-1].country_code === result.country_code) {
             entry = table[j];
           } else {
             table[j++] = entry;
