@@ -1,9 +1,8 @@
 extend layout
 
-- var result = destination;
-- console.log('in view, destination: ' + JSON.stringify(destination, null, 2));
-
 block content
+  - var result = destination;
+  - console.log('in view, destination: ' + JSON.stringify(destination, null, 2));
   h1 destination.destination_name
   - console.log('singular starting: ' + JSON.stringify(result, null, 2));
   p
