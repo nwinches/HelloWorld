@@ -29,7 +29,7 @@ module.exports = function(app){
       } else {
         console.log('in routes ' + JSON.stringify(destination, null, 2)); 
         response.render('destination', {
-          title: destination.destination_name,
+          title: 'destination.destination_name',
           destination: destination
         });
       }
