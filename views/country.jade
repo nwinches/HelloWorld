@@ -1,9 +1,9 @@
 extend layout
 
 block content
-  h2 #{country.destination_name}
+  h2 #{country.country_name}
   p
-    | #{country.country_name} likely offers #{country.min_days}-#{country.max_days} of activities.
+    | Based on our itinerary, #{country.country_name} likely offers #{country.min_days}-#{country.max_days} days of activities.
   h3 Destinations
   ul
     each destination in country.destinations.length ? country.destinations : [null]

@@ -4,7 +4,7 @@ block content
   - var result = destination;
   h2 #{destination.destination_name}
   p
-    | #{destination.destination_name} is in #{destination.country_name} and likely offers #{result.min_days}-#{result.max_days} of activities.
+    | #{destination.destination_name} is in #[a(href='/countries/'+destination.country_code) #{destination.country_name}] and based on our itinerary, offers #{result.min_days}-#{result.max_days} days of activities.
   h3 Activities
   ul
     each activity in result.activity_name.length ? result.activity_name : [null]
