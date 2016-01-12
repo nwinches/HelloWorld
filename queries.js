@@ -149,7 +149,8 @@ module.exports = {
                               sum(min_days) over (partition by country_code) as sum_min_days, \
                               sum(max_days) over (partition by country_code) as sum_max_days \
                          from test_table \
-                              left outer join destinations on (test_table.iso_country_code_two_letter = destinations.country_code)';
+                              left outer join destinations on (test_table.iso_country_code_two_letter = destinations.country_code) \
+    	                where test_table.iso_country_code_two_letter = $1 ';
 
 
     pg.connect(dbUrl, function(err, client, done) {
@@ -160,6 +161,8 @@ module.exports = {
         var i;
         var entry = new Object();
         entry.destinations = new Array;
+        
+        console.log(JSON.stringify(results, null, 2));
 
         for (i = 0; i < results.rows.length; i++) {
           var result = results.rows[i];
