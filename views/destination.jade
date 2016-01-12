@@ -2,20 +2,18 @@ extend layout
 
 block content
   - var result = destination;
-  - console.log('in view, destination: ' + JSON.stringify(destination, null, 2));
-  h1 destination.destination_name
-  - console.log('singular starting: ' + JSON.stringify(result, null, 2));
+  h1 #{destination.destination_name}
   p
-    | result.destination_name + ' is in ' result.country_name + ' and likely offers ' + result.min_days + '-' + result.max_days + ' of activities.
+    | #{destination.destination_name} is in #{destination.country_name} and likely offers #{result.min_days}-#{result.max_days} of activities.
   h2 Activities
-    ul
-      each activity in result.activity_name.length ? result.activity_name : [null]
-        if activity
-          li= activity
+  ul
+    each activity in result.activity_name.length ? result.activity_name : [null]
+      if activity
+        li= activity
   h2 Description
-    ul
-      each desc in result.description.length ? result.description : [null]
-        if desc
-          li= desc
+  ul
+    each desc in result.description.length ? result.description : [null]
+      if desc
+        li= desc
 block sidebar
 
