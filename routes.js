@@ -27,6 +27,7 @@ module.exports = function(app){
         console.error(err);
         response.send("Error " + err);
       } else {
+        console.log('in routes ' + JSON.stringify(destination, null, 2)); 
         response.render('destination', {
           title: destination.destination_name,
           destination: destination
