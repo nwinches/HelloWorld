@@ -42,6 +42,7 @@ module.exports = function(app){
         console.error(err);
         response.send("Error " + err);
       } else {
+    	console.log('countries in routes: ' + JSON.stringify(table, null, 2));
         response.render('countries', {
           title: 'Countries',
           results: table
