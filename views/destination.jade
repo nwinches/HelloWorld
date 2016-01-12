@@ -5,7 +5,7 @@ extend layout
 
 block content
   h1 destination.destination_name
-  - console.log('starting: ' + JSON.stringify(result, null, 2));
+  - console.log('singular starting: ' + JSON.stringify(result, null, 2));
   p
     | result.destination_name + ' is in ' result.country_name + ' and likely offers ' + result.min_days + '-' + result.max_days + ' of activities.
   h2 Activities
