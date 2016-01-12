@@ -1,10 +1,10 @@
 extend layout
 
 - var result = destination;
-- console.log('in view, destination: ' + JSON.stringify(result, null, 2));
+- console.log('in view, destination: ' + JSON.stringify(destination, null, 2));
 
 block content
-  h1 destination[0].destination_name
+  h1 destination.destination_name
   - console.log('starting: ' + JSON.stringify(result, null, 2));
   p
     | result.destination_name + ' is in ' result.country_name + ' and likely offers ' + result.min_days + '-' + result.max_days + ' of activities.
