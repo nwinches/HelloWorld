@@ -20,6 +20,6 @@ block content
             ul
               each destination in result.destinations.length ? result.destinations : [null]
                 if destination
-                  li= #[a(href='/destinations/'+destination.destination_id) #{destination.destination_name}] lol
+                  li #[a(href='/destinations/'+destination.destination_id) #{destination.destination_name}]
 block sidebar
 
