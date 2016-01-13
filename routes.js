@@ -4,7 +4,7 @@ module.exports = function(app){
   app.get('/', function (request, response) {
     response.render('index',
       { title : 'Home' }
-    )
+    );
   });
 
   app.get('/destinations', function (request, response) {
@@ -65,4 +65,4 @@ module.exports = function(app){
     });
   });
 
-}
+};
