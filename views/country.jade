@@ -8,7 +8,9 @@ block content
   ul
     each destination in country.destinations.length ? country.destinations : [null]
       if destination
-        li #[a(href='/destinations/'+destination.destination_id) #{destination.destination_name}] for #{destination.min_days}-#{destination.max_days} days
+        li #[a(href='/destinations/'+destination.destination_id) #{destination.destination_name}] for 
+           destination.min_days = destination.max_days ? #{destination.min_days} : #{destination.min_days}-#{destination.max_days} 
+           days
 
 block sidebar
 
