@@ -29,7 +29,7 @@ module.exports = function(app){
       } else {
         console.log('in routes ' + JSON.stringify(destination, null, 2)); 
         response.render('destination', {
-          title: 'destination.destination_name',
+          title: destination.destination_name,
           destination: destination
         });
       }
@@ -58,8 +58,23 @@ module.exports = function(app){
         response.send("Error " + err);
       } else {
         response.render('country', {
-          title: 'country.country_name',
+          title: country.country_name,
           country: country
+        });
+      }
+    });
+  });
+
+  //TODO: activities page
+  app.get('/activities/:activity_id', function (request, response) {
+    queries.getActivity(request.params.activity_id, function(err, activity) {
+      if (err) {
+        console.error(err);
+        response.send("Error " + err);
+      } else {
+        response.render('activity', {
+          title: activity.activity_name,
+          activity: activity
         });
       }
     });

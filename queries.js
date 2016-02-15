@@ -102,7 +102,7 @@ module.exports = {
                               sum(max_days) over (partition by country_code) as sum_max_days \
                          from test_table \
                               left outer join destinations on (test_table.iso_country_code_two_letter = destinations.country_code) \
-    	                order by country_name';
+                        order by country_name';
 
     pg.connect(dbUrl, function(err, client, done) {
       client.query(queryString, function(err, results) {
@@ -156,7 +156,7 @@ module.exports = {
                               sum(max_days) over (partition by country_code) as sum_max_days \
                          from test_table \
                               left outer join destinations on (test_table.iso_country_code_two_letter = destinations.country_code) \
-    	                where test_table.iso_country_code_two_letter = $1 ';
+                        where test_table.iso_country_code_two_letter = $1 ';
 
 
     pg.connect(dbUrl, function(err, client, done) {
@@ -188,6 +188,50 @@ module.exports = {
             destination.destination_name = result.destination_name;
             destination.min_days = result.min_days;
             destination.max_days = result.max_days;
+          }
+        }
+
+        callback(err, entry);
+      });
+    });
+  },
+
+  getActivity: function(activity_id, callback) {
+    var pg = require('pg');
+    var dbUrl = process.env.DATABASE_URL;
+
+    var queryString = 'select activity_name, destination_id, destination_name, country_name, iso_country_code_two_letter as country_code, description \
+                         from activities \
+                              left outer join destination_activity using (activity_id) \
+                              left outer join destinations using (destination_id) \
+                              left outer join test_table on (destinations.country_code = test_table.iso_country_code_two_letter) \
+                        where activities.activity_id = $1 ';
+
+
+    pg.connect(dbUrl, function(err, client, done) {
+      client.query({text: queryString, values: [activity_id]}, function(err, results) {
+        done();
+
+        var table = [];
+        var i;
+        var entry = {};
+        entry.destinations = [];
+        
+        console.log(JSON.stringify(results, null, 2));
+
+        for (i = 0; i < results.rows.length; i++) {
+          var result = results.rows[i];
+
+          entry.activity_name = result.activity_name;
+          
+          if (result.destination_id !== '') {
+            var destination = {};
+            entry.destinations[entry.destinations.length] = destination;
+            destination.destination_id = result.destination_id;
+            destination.destination_name = result.destination_name;
+            destination.country_name = result.country_name;
+            destination.country_code = result.country_code;
+            destination.description = result.description;
           }
         }
 

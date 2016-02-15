@@ -1,0 +1,11 @@
+extend layout
+
+block content
+  h2 #{activity.activity_name}
+  h3 Destinations with #{activity.activity_name}
+  ul
+    each destination in activity.destinations.length ? activity.destinations : [null]
+      if destination
+        li= #{destination.destination_name} in #{destination.country}.  #{destination.descriptions}
+block sidebar
+
