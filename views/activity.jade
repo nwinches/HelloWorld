@@ -6,6 +6,6 @@ block content
   ul
     each destination in activity.destinations.length ? activity.destinations : [null]
       if destination
-        li= #{destination.destination_name} in #{destination.country}.  #{destination.descriptions}
+        li= #{destination.destination_name} in #{destination.country_name}.  #{destination.description}
 block sidebar
 
