@@ -37,6 +37,7 @@ module.exports = {
           if (result.activity_name !== '') {
         	var activity = {};
             entry.activities[entry.activities.length] = activity;
+            console.log(result.activity_id + result.activity_name);
             activity.activity_name = result.activity_name;
             activity.activity_id = result.activity_id;
           }
