@@ -66,7 +66,7 @@ module.exports = {
 
         var i;
         var entry = {};
-        entry.activity_name = [];
+        entry.activities = [];
         entry.description = [];
 
         for (i = 0; i < results.rows.length; i++) {
