@@ -20,7 +20,7 @@ block content
             ul
               each activity in result.activities.length ? result.activities : [null]
                 if activity
-                  li= #[a(href='/activities/'+activity.activity_id) #{activity.activity_name}]
+                  li #[a(href='/activities/'+activity.activity_id) #{activity.activity_name}]
           td
             ul
               each desc in result.description.length ? result.description : [null]
