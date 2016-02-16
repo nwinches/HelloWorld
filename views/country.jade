@@ -10,10 +10,9 @@ block content
       if destination
         li #[a(href='/destinations/'+destination.destination_id) #{destination.destination_name}] for 
            if destination.min_days == destination.max_days 
-             | destination.min_days
+             | #{destination.min_days} days
            else 
-             | #{destination.min_days}-destination.max_days
-           | days
+             | #{destination.min_days}-#{destination.max_days } days
 
 block sidebar
 

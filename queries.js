@@ -5,7 +5,7 @@ module.exports = {
     var pg = require('pg');
     var dbUrl = process.env.DATABASE_URL;
 
-    var queryString = 'select destination_id, destination_name, country_name, country_code, min_days, max_days, activity_name, description \
+    var queryString = 'select destination_id, destination_name, country_name, country_code, min_days, max_days, activity_id, activity_name, description \
                          from destinations \
                               inner join test_table on (destinations.country_code = test_table.iso_country_code_two_letter) \
                               left outer join destination_activity using (destination_id) \
@@ -31,11 +31,13 @@ module.exports = {
             entry.country_code = result.country_code;
             entry.min_days = result.min_days;
             entry.max_days = result.max_days;
-            entry.activity_name = [];
+            entry.activities = [];
             entry.description = [];
           }
           if (result.activity_name !== '') {
-            entry.activity_name[entry.activity_name.length] = result.activity_name;
+            entry.activities[entry.activities.length] = {};
+            entry.activities[entry.activities.length].activity_name = result.activity_name;
+            entry.activities[entry.activities.length].activity_id = result.activity_id;
           }
           if (result.description !== '') {
             entry.description[entry.description.length] = result.description;
@@ -78,7 +80,9 @@ module.exports = {
           entry.max_days = result.max_days;
           
           if (result.activity_name !== '') {
-            entry.activity_name[entry.activity_name.length] = result.activity_name;
+            entry.activities[entry.activities.length] = {};
+            entry.activities[entry.activities.length].activity_name = result.activity_name;
+            entry.activities[entry.activities.length].activity_id = result.activity_id;
           }
           if (result.description !== '') {
             entry.description[entry.description.length] = result.description;

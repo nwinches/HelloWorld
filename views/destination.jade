@@ -7,9 +7,9 @@ block content
     | #{destination.destination_name} is in #[a(href='/countries/'+destination.country_code) #{destination.country_name}] and based on our itinerary, offers #{result.min_days}-#{result.max_days} days of activities.
   h3 Activities
   ul
-    each activity in result.activity_name.length ? result.activity_name : [null]
+    each activity in result.activities.length ? result.activities : [null]
       if activity
-        li= activity
+        li= #[a(href='/activities/'+activity.activity_id) #{activity.activity_name}]
   h3 Description
   ul
     each desc in result.description.length ? result.description : [null]

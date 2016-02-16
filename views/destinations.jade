@@ -18,9 +18,9 @@ block content
           td= result.min_days + '-' + result.max_days
           td
             ul
-              each activity in result.activity_name.length ? result.activity_name : [null]
+              each activity in result.activities.length ? result.activities : [null]
                 if activity
-                  li= activity
+                  li= #[a(href='/activities/'+activity.activity_id) #{activity.activity_name}]
           td
             ul
               each desc in result.description.length ? result.description : [null]
