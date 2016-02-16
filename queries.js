@@ -37,8 +37,8 @@ module.exports = {
           if (result.activity_name !== '') {
         	var activity = {};
             entry.activities[entry.activities.length] = activity;
-            entry.activities[entry.activities.length].activity_name = result.activity_name;
-            entry.activities[entry.activities.length].activity_id = result.activity_id;
+            activity.activity_name = result.activity_name;
+            activity.activity_id = result.activity_id;
           }
           if (result.description !== '') {
             entry.description[entry.description.length] = result.description;
@@ -81,9 +81,10 @@ module.exports = {
           entry.max_days = result.max_days;
           
           if (result.activity_name !== '') {
-            entry.activities[entry.activities.length] = {};
-            entry.activities[entry.activities.length].activity_name = result.activity_name;
-            entry.activities[entry.activities.length].activity_id = result.activity_id;
+        	var activity = {};
+            entry.activities[entry.activities.length] = activity;
+            activity.activity_name = result.activity_name;
+            activity.activity_id = result.activity_id;
           }
           if (result.description !== '') {
             entry.description[entry.description.length] = result.description;
