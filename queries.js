@@ -55,7 +55,7 @@ module.exports = {
     var pg = require('pg');
     var dbUrl = process.env.DATABASE_URL;
 
-    var queryString = 'select destination_id, destination_name, country_name, country_code, min_days, max_days, activity_name, description \
+    var queryString = 'select destination_id, destination_name, country_name, country_code, min_days, max_days, activity_id, activity_name, description \
                          from destinations \
                               inner join test_table on (destinations.country_code = test_table.iso_country_code_two_letter) \
                               left outer join destination_activity using (destination_id) \
