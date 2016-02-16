@@ -35,7 +35,8 @@ module.exports = {
             entry.description = [];
           }
           if (result.activity_name !== '') {
-            entry.activities[entry.activities.length] = {};
+        	var activity = {};
+            entry.activities[entry.activities.length] = activity;
             entry.activities[entry.activities.length].activity_name = result.activity_name;
             entry.activities[entry.activities.length].activity_id = result.activity_id;
           }
