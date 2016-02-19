@@ -214,7 +214,6 @@ module.exports = {
                               left outer join test_table on (destinations.country_code = test_table.iso_country_code_two_letter) \
                         where activities.activity_id = $1 ';
 
-
     pg.connect(dbUrl, function(err, client, done) {
       client.query({text: queryString, values: [activity_id]}, function(err, results) {
         done();
