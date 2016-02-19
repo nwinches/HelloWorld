@@ -2,23 +2,24 @@ extend layout
 block content
   p
     | Countries!
-  table.sortable
-    thead
-      th Country
-      th Capital
-      th Currency
-      th Days
-      th Destinations
-    each result, index in results.length ? results : ['There are no countries :(']
-      tr
-        td #[a(href='/countries/'+result.country_code) #{result.country_name}]
-        td= result.capital
-        td= result.currency_code
-        td= result.min_days + '-' + result.max_days
-        td
-          ul
-            each destination in result.destinations.length ? result.destinations : [null]
-              if destination
-                li #[a(href='/destinations/'+destination.destination_id) #{destination.destination_name}]
+  .rounded
+    table.sortable
+      thead
+        th Country
+        th Capital
+        th Currency
+        th Days
+        th Destinations
+      each result, index in results.length ? results : ['There are no countries :(']
+        tr
+          td #[a(href='/countries/'+result.country_code) #{result.country_name}]
+          td= result.capital
+          td= result.currency_code
+          td= result.min_days + '-' + result.max_days
+          td
+            ul
+              each destination in result.destinations.length ? result.destinations : [null]
+                if destination
+                  li #[a(href='/destinations/'+destination.destination_id) #{destination.destination_name}]
 block sidebar
 
